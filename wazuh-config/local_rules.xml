@@ -1,0 +1,33 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+
+<!-- PFE - Custom critical FIM detection -->
+<group name="local,pfe_custom,fim_critical,">
+
+  <rule id="100002" level="12">
+    <if_sid>550</if_sid>
+    <field name="file">^/etc/wazuh-pfe-test\.conf$</field>
+    <description>PFE: Critical configuration file modified: $(file)</description>
+    <mitre>
+      <id>T1565.001</id>
+    </mitre>
+  </rule>
+
+</group>
+
+<!-- PFE - Detection of sensitive sudo command -->
+<group name="local,pfe_custom,sudo_sensitive,">
+
+  <rule id="100003" level="10">
+    <if_sid>5402</if_sid>
+    <field name="command">^/usr/bin/whoami$</field>
+    <description>PFE: Sensitive command executed with sudo: $(command)</description>
+    <mitre>
+      <id>T1548.003</id>
+    </mitre>
+  </rule>
+
+</group>

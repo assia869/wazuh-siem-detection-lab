@@ -1,0 +1,18 @@
+<!-- Wazuh Agent - File Integrity Monitoring configuration -->
+<!-- Relevant configuration used for the PFE laboratory -->
+
+<syscheck>
+  <disabled>no</disabled>
+
+  <!-- Full scheduled FIM scan every 12 hours -->
+  <frequency>43200</frequency>
+
+  <!-- Perform an integrity scan when the agent starts -->
+  <scan_on_start>yes</scan_on_start>
+
+  <!-- Real-time monitoring used for the critical-file scenario -->
+  <directories realtime="yes">/etc,/usr/bin,/usr/sbin</directories>
+
+  <!-- Additional monitored system directories -->
+  <directories>/bin,/sbin,/boot</directories>
+</syscheck>
